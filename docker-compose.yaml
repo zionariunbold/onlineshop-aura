@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: shop-postgres
+    environment:
+      POSTGRES_DB: shopdb
+      POSTGRES_USER: shopuser
+      POSTGRES_PASSWORD: shoppass
+    ports:
+      - "5432:5432"        # local-оосоо psql-ээр холбогдох хэрэг гарвал
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: shop-api
+    depends_on:
+      - db
+    environment:
+      DB_DSN: postgres://shopuser:shoppass@db:5432/shopdb?sslmode=disable
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
