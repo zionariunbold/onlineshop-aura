@@ -1,0 +1,40 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Go build output
+/bin/
+/build/
+out/
+dist/
+
+# Dependency directories (vendor if used)
+vendor/
+
+# Logs
+*.log
+log/
+
+# IDE / Editor files
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains / GoLand
+.idea/
+
+# OS garbage
+.DS_Store
+Thumbs.db
+
+# Env secrets
+.env
+.env.local
+.env.*.local
+
+# Docker
+docker-data/
